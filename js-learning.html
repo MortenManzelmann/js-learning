@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>Einkaufsliste</title>
+</head>
+
+<body>
+   <div id="images">
+      <img src="pic/shoppinglist.png" alt="" height="300" width="auto">
+      <img src="pic/IMG_20180220_185049.jpg" alt="" height="300" width="auto">
+   </div>
+   <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas -->
+   <!-- <canvas id="canvas" width="256" height="256"></canvas> -->
+   <div>
+      <input id="grayscalebtn" value="Grayscale" type="button">
+      <input id="invertbtn" value="Invert" type="button">
+      <input id="monochrombtn" value="Monochrom" type="button">
+      <input id="fftBtn" type="button" value="FFT">
+      <div class="slidecontainer">
+         <p>Threshold slider:</p>
+         <input id="threshold" type="range" min="0" max="255" value="50">
+      </div>
+
+      <script  src="javascript/ImageManipulation.js"></script>
+      <script  src="ShoppingList.js"></script>
+      <script>
+           
+
+            document.querySelector('img:nth-child(1)').addEventListener('load', function(){
+               var sl = new ShoppingList(this);
+               sl.process();
+               ShoppingList.foo = "Hallo";
+            //    im.convertToMatrix();
+            //    im.grayScale();
+            console.log(ShoppingList.foo);
+               document.getElementById('images').appendChild(sl.getCanvas());
+            });
+           
+
+      </script>
+</body>
+
+</html>
